@@ -9,30 +9,27 @@ export const ResizableAnimation = ({ children, direction, path }: { children: Re
         forward: {
             initial: { opacity: 0, x: 0 },
             animate: { opacity: 1, x: 0 },
-            exit: { opacity: 0, x: -100 },
+            exit: { opacity: 0, x: -300 },
         },
         previous: {
             initial: { opacity: 0, x: 0 },
             animate: { opacity: 1, x: 0 },
-            exit: { opacity: 0, x: 100 },
+            exit: { opacity: 0, x: 300 },
         },
     };
-
-    console.log(height);
 
     return (
         <motion.div
             className="relative overflow-hidden"
             animate={{ height: height || "auto" }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.05 }}
         >
             <AnimatePresence initial={false}>
                 <motion.div
                     {...animations[direction]}
                     transition={
                         {
-                            x: { type: "spring", stiffness: 300, damping: 30 },
-                            opacity: { duration: 0.2 },
+                            opacity: { duration: 0.3 },
                         }
                     }
                     className={`absolute w-full bg-demo-menu-bg`}
